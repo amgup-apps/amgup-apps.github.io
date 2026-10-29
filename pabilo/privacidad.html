@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pabilo · Política de privacidad</title>
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; background: #F7EFE2; color: #2A211B; font: 17px/1.6 "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 32px 18px 64px; }
+  h1, h2 { font-family: Georgia, "Noto Serif", "Times New Roman", serif; font-weight: 600; }
+  h1 { font-size: 30px; margin: 0 0 4px; }
+  h2 { font-size: 20px; margin: 28px 0 6px; }
+  .flame { width: 22px; height: 30px; margin: 0 0 10px 2px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; transform: rotate(-45deg);
+    background: linear-gradient(180deg, #F6C45A, #E8912E 70%, #B5471F); box-shadow: 0 0 18px 4px rgba(246,196,90,.5); }
+  .muted { color: #6B5B4E; font-size: 15px; }
+  .short { background: #FFFBF4; border: 1px solid #E6D9C6; border-radius: 14px; padding: 4px 18px; margin: 18px 0; }
+  a { color: #B5471F; }
+  ul { padding-left: 22px; }
+  p { margin: 10px 0; }
+</style>
+</head>
+<body>
+<main>
+<div class="flame"></div>
+<h1>Política de privacidad de Pabilo</h1>
+<p class="muted">Última actualización: 28 de octubre de 2026 · <a href="privacy.html">Read in English</a></p>
+<p>Pabilo es un diario de lectura para Android, hecho por una sola persona. Esta página explica, en palabras sencillas, qué hace la app con tus datos.</p>
+
+<div class="short">
+<h2>En corto</h2>
+<p class="muted">La versión corta. La política completa explica cada detalle.</p>
+<ul>
+<li>Tus libros, sesiones, notas y portadas se quedan en tu teléfono. Pabilo no tiene cuenta, ni servidor, ni anuncios.</li>
+<li>Nada sale de tu teléfono a menos que toques Buscar en línea, Traer los datos o Traer portadas. Eso envía el texto que escribiste, o el ISBN del libro, a Open Library.</li>
+<li>Pabilo no recoge tu nombre, correo, contactos, ubicación ni ningún identificador tuyo o de tu teléfono.</li>
+<li>Las compras de Pro pasan por Google Play. Pabilo nunca ve tus datos de pago.</li>
+</ul>
+<p>Contacto: <a href="mailto:pedalup180@gmail.com">pedalup180@gmail.com</a></p>
+</div>
+
+<h2>Qué guarda Pabilo en tu teléfono</h2>
+<p>Pabilo guarda estos archivos en su carpeta privada, que otras apps no pueden leer:</p>
+<ul><li>tus libros, lecturas, citas y estantes (los cuatro de siempre y los que tú crees, con sus etiquetas);</li><li>tus sesiones de lectura (fecha, minutos, páginas);</li><li>tus ajustes (idioma, tema, metas en libros, páginas u horas, hora del recordatorio);</li><li>las portadas que tomaste con la cámara, elegiste de tu galería o trajiste de Open Library (reducidas a unos 300 píxeles y sin metadatos de foto, incluida la ubicación);</li><li>un resumen pequeño para el widget de la pantalla de inicio.</li></ul>
+<p>Si tienes activada la copia de seguridad de Android, Android puede copiar esos archivos (sin portadas) a tu cuenta de Google. Esa copia la hace Android, con los ajustes de tu cuenta de Google, no Pabilo.</p>
+<p>Al desinstalar la app se borra todo esto. También puedes guardar tu propio respaldo (un .zip o un .json) con "Guardar respaldo" y conservarlo donde quieras.</p>
+
+<h2>Las funciones opcionales en línea (Open Library)</h2>
+<p>Pabilo puede buscar los datos de un libro en internet. Es opcional y no se usa hasta que lo pides:</p>
+<ul><li><b>Buscar en línea</b>, en "Agregar libro", envía el texto que escribiste (un título o un autor) a Open Library.</li><li><b>Traer los datos</b> (después de escribir o escanear un ISBN) envía ese ISBN a Open Library.</li><li><b>Traer portadas</b>, después de importar un archivo CSV, envía el ISBN de cada libro importado a Open Library, uno por segundo, y descarga la portada.</li></ul>
+<p>Open Library es un catálogo de biblioteca gratuito de Internet Archive (Estados Unidos). Pabilo envía solo el texto buscado o el ISBN, más el nombre y la versión de la app en la petición. Como cualquier sitio web, Open Library ve la dirección IP de tu teléfono. Pabilo no envía tu nombre, tu correo, tu biblioteca, tu historial de lectura ni ningún identificador tuyo ni de tu teléfono. Pabilo no guarda ningún historial de búsquedas: el texto se usa para esa única petición y no se almacena.</p>
+<p>La primera vez que usas una de estas funciones, Pabilo muestra un aviso que dice exactamente esto y te deja elegir "Ahora no". Siempre puedes escribir los datos del libro a mano. Todo lo demás de Pabilo (cronómetro, estantes, metas, estadísticas, importar, exportar, respaldo, widget, recordatorio) funciona sin internet.</p>
+<p>Términos y privacidad de Internet Archive: <a href="https://archive.org/about/terms.php">https://archive.org/about/terms.php</a></p>
+
+<h2>El escáner de códigos de barras</h2>
+<p>"Escanear el código" usa la cámara de tu teléfono para leer el ISBN impreso en un libro. La imagen de la cámara se procesa solo en tu teléfono (ZXing, una librería de código abierto) y nunca se guarda ni se envía a ningún lado. El permiso de cámara se pide solo cuando tocas "Escanear". Si lo niegas, puedes tomar una foto del código con la app de cámara del sistema, o escribir el ISBN.</p>
+
+<h2>Cámara y galería para las portadas</h2>
+<p>Cuando tomas una foto para una portada o eliges una de tu galería, Pabilo usa la cámara del sistema o el selector del sistema, así que no necesita permisos de cámara ni de almacenamiento. La imagen se reduce y se guarda en la carpeta privada de la app sin sus metadatos.</p>
+
+<h2>Importar y exportar archivos</h2>
+<p>Importar un archivo CSV (por ejemplo, una exportación de otro sitio de lectura) lee el archivo que eliges y nada más. Exportar archivos CSV y respaldos escribe los archivos donde tú elijas. Esos archivos nunca salen de tu teléfono a través de Pabilo.</p>
+
+<h2>Notificaciones</h2>
+<p>Pabilo muestra como máximo dos tipos de avisos: el cronómetro de lectura en curso y el recordatorio diario opcional (apagado por defecto, una línea al día, callado los días en que ya leíste). Los avisos necesitan tu permiso en Android 13 o más nuevo, que se pide la primera vez que arrancas el cronómetro o enciendes el recordatorio. Si un recordatorio no llega, la pantalla del recordatorio puede explicar por qué: para eso Pabilo lee algunos ajustes de tu teléfono (si el uso de batería está restringido para Pabilo, No molestar y si la categoría de avisos del recordatorio está encendida). Solo los lee en tu teléfono y no envía nada a ningún lado. Pabilo no pide ningún permiso nuevo para esto.</p>
+
+<h2>Compras (Pro)</h2>
+<p>Pabilo ofrece una mejora Pro opcional (mensual, anual o de por vida) a través de Google Play Billing. Google Play maneja el pago y puede procesar los datos de la compra según los términos de Google Play. Pabilo nunca ve tus datos de pago y no recoge tu historial de compras: solo sabe por Google Play si Pro está activo en tu teléfono. Los términos de uso (publicados junto a esta política y visibles dentro de la app) explican compras, renovaciones y reembolsos.</p>
+
+<h2>Menores</h2>
+<p>Pabilo no está dirigida a menores de 13 años.</p>
+
+<h2>Cambios</h2>
+<p>Si esta política cambia, la versión nueva se publicará en la misma dirección y cambiará la fecha de "Última actualización".</p>
+
+<h2>Contacto</h2>
+<p>Preguntas: <a href="mailto:pedalup180@gmail.com">pedalup180@gmail.com</a></p>
+
+<p class="muted">Mira también: <a href="terminos.html">Términos de uso</a> · <a href="index.html">Pabilo</a></p>
+</main>
+</body>
+</html>
