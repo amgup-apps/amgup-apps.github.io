@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuner Journal · Reference tones</title>
+<meta name="description" content="Exact reference tones made by your browser, to check a tuner: A4 440 Hz, A4 plus 10 cents, E2 and E1.">
+<style>
+  body { margin: 0; background: #f7f8fa; color: #1c2430; font: 17px/1.6 Georgia, "Times New Roman", serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 32px 18px 64px; }
+  h1 { font-size: 28px; margin: 0 0 4px; } h2 { font-size: 19px; margin: 28px 0 6px; }
+  .muted { color: #55606e; font-size: 15px; } a { color: #1d4ed8; }
+  .tonos { display: grid; gap: 10px; margin: 18px 0; }
+  .tonos button, .parar { font: 600 18px/1.3 system-ui, "Segoe UI", Roboto, sans-serif; min-height: 56px; padding: 10px 16px; border-radius: 12px; border: 2px solid #5B2A5E;
+    background: #fff; color: #3d1b40; text-align: left; cursor: pointer; }
+  .tonos button small { display: block; font-weight: 400; font-size: 15px; color: #55606e; }
+  .tonos button[aria-pressed="true"] { background: #5B2A5E; color: #fff; }
+  .tonos button[aria-pressed="true"] small { color: #f1e4f2; }
+  .parar { width: 100%; text-align: center; background: #1c2430; border-color: #1c2430; color: #fff; }
+  .vol { display: flex; align-items: center; gap: 12px; margin: 14px 0; font: 16px system-ui, "Segoe UI", Roboto, sans-serif; }
+  .vol input { flex: 1; min-width: 0; }
+  #estado { font: 600 16px system-ui, "Segoe UI", Roboto, sans-serif; min-height: 1.6em; }
+  button:focus-visible, input:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }
+</style>
+</head>
+<body>
+<main>
+<h1>Reference tones</h1>
+<p class="muted">Tuner Journal · <a href="#es" lang="es">En español</a></p>
+<p>Each button plays one exact pitch, made by your browser. Use them to check a tuner: put the phone about 30 cm (1 ft) from the speaker, in a quiet room, and play one tone at a time.</p>
+<p>Start at a low volume and take care of your hearing, especially with headphones. Small laptop speakers barely play E1 itself; its harmonics let a tuner find the note.</p>
+
+<div class="tonos" role="group" aria-label="Tones / Tonos">
+  <button type="button" data-id="a4" aria-pressed="false">A4 · 440.00 Hz<small>Pure reference · Referencia pura</small></button>
+  <button type="button" data-id="a4p10" aria-pressed="false">A4 + 10 cents · 442.55 Hz<small>10 cents sharp · 10 cents arriba</small></button>
+  <button type="button" data-id="e2" aria-pressed="false">E2 · 82.41 Hz<small>String sound · Sonido de cuerda</small></button>
+  <button type="button" data-id="e1" aria-pressed="false">E1 · 41.20 Hz<small>Bass sound with harmonics · Sonido de bajo con armónicos</small></button>
+</div>
+<div class="vol"><label for="vol">Volume · Volumen</label><input id="vol" type="range" min="2" max="60" value="30"></div>
+<button type="button" class="parar" id="parar">Stop · Detener</button>
+<p id="estado" role="status" aria-live="polite"></p>
+
+<h2 id="es" lang="es">En español</h2>
+<p lang="es">Cada botón toca un tono exacto, hecho por tu navegador. Sirven para revisar un afinador: pon el teléfono a unos 30 cm de la bocina, en un cuarto callado, y toca un tono a la vez.</p>
+<p lang="es">Empieza con el volumen bajo y cuida tu oído, sobre todo con audífonos. Las bocinas chicas de una computadora casi no tocan el E1 mismo; sus armónicos dejan que un afinador encuentre la nota.</p>
+
+<p class="muted">The tones are generated with the Web Audio API of your browser; nothing is downloaded and nothing is sent. · Los tonos los genera tu navegador con Web Audio; no se baja nada y no se envía nada.</p>
+<p class="muted"><a href="index.html">Tuner Journal</a> · <a href="privacy.html">Privacy Policy</a> · <a href="privacidad.html">Política de privacidad</a></p>
+</main>
+<script src="tono.js"></script>
+<script>
+(function () {
+  var es = /^es\b/i.test(navigator.language || ''), botones = document.querySelectorAll('.tonos button'), estado = document.getElementById('estado'), i;
+  function marcar() {
+    var id = TJTono.playing(), k, t;
+    for (k = 0; k < botones.length; k++) botones[k].setAttribute('aria-pressed', botones[k].getAttribute('data-id') === id ? 'true' : 'false');
+    t = null; for (k = 0; k < TJTono.TONOS.length; k++) if (TJTono.TONOS[k].id === id) t = TJTono.TONOS[k];
+    estado.textContent = t ? (es ? 'Sonando: ' : 'Playing: ') + t.note + ' · ' + t.hz.toFixed(2) + ' Hz' : '';
+  }
+  for (i = 0; i < botones.length; i++) botones[i].addEventListener('click', function () {
+    var id = this.getAttribute('data-id');
+    if (TJTono.playing() === id) TJTono.stop(); else if (!TJTono.play(id)) estado.textContent = es ? 'Este navegador no puede tocar sonido.' : 'This browser cannot play sound.';
+    if (estado.textContent.indexOf('browser') < 0 && estado.textContent.indexOf('navegador') < 0) marcar();
+  });
+  document.getElementById('parar').addEventListener('click', function () { TJTono.stop(); marcar(); });
+  document.getElementById('vol').addEventListener('input', function () { TJTono.setVol(this.value / 100); });
+})();
+</script>
+</body>
+</html>
